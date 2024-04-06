@@ -5,9 +5,12 @@ public class Pessoa {
     private String nome;
     private String correndo;
 
-    public Pessoa(int idade, String nome) {
+    String resultado;
+
+    public Pessoa(int idade, String nome, String correndo) {
         this.idade = idade;
         this.nome = nome;
+        this.correndo = correndo;
     }
     public int getIdade() {
         return idade;
@@ -29,16 +32,17 @@ public class Pessoa {
     }
 
 
-    public void correr(String correndo){
-        if (correndo.equalsIgnoreCase("y") || correndo.equalsIgnoreCase( "s")) {
-            System.out.println("Correndo");
+    public String correr(String correndo){
+        if (correndo.equalsIgnoreCase("yes") || correndo.equalsIgnoreCase( "sim")) {
+            resultado = "correndo";
         } else {
-            System.out.println("Erro! A Pessoa está parada!!");
+            resultado = "Erro! Pessoa esta parada";
         }
+        return resultado;
     }
 
     public String toString() {
-        return "Nome: " + nome + "\nidade: " + idade + " \nEstá correndo?  %s" + correr(correndo);
+        return "Nome: " + nome + "\nidade: " + idade + " \nEstá correndo? " + String.format("\n%s", correr(correndo));
     }
 
 }
